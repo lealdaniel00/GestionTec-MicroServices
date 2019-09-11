@@ -6,9 +6,9 @@ services:
   name:
     build: ./name
     ports: ["5002:5000"]
-  concat:
-    build: ./concat
+  app:
+    build: ./app
     ports: ["5003:5000"]
     depends_on:
+      - name
       - suma
-      - hello
