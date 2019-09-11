@@ -12,9 +12,10 @@ app = Flask(__name__)
 def send():
 	if request.form['action'] == '+':
 	    #COMUNICARSE CON SUMA.PY
-	    #num1 = int(request.form["num1"])
-		#num2 = int(request.form["num2"])
-		suma=requests.get('http://suma:5000/').text;
+	    	num1 = int(request.form["num1"])
+		num2 = int(request.form["num2"])
+		suma=requests.get('http://suma:5000/'+str(num1)+'/'+str(num2)).text
+		#suma=requests.get('http://suma:5000/5/8').text
 		return render_template('/show_all.html', string_variable=suma)
 	elif request.form['action'] == '-':
 		return render_template('/show_all.html', string_variable=suma)
